@@ -17,14 +17,40 @@
     <script src="js/prism.js"></script>
 </head>
 <body>
-    <nav class="bg-dark">
+  <!-- -----------------------navbar start---------------- -->
+    <!-- <nav class="bg-dark">
         <span><i class="far fa-copy"></i></span>
         <div>CheatSheet</div>
+    </nav> -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+      <div class="container">
+        <a class="navbar-brand logo" href="index.html"> <i class="far fa-copy"></i> Cheatsheet</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">HTML</a>
+            </li>     
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="pages/css.html">CSS</a>
+            </li>     
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="pages/bootstrap.html">Bootstrap</a>
+            </li>     
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="pages/react.html">React</a>
+            </li>     
+          </ul>
+        </div>
+      </div>
     </nav>
-    <div class="container">
-        <ol>
+    <!-- ------------------------navbar end----------------------- -->
+    <div class="container mt-2">
+        <ul>
 
-            <li>HTML </li>
+            <li class="fw-bold">HTML </li>
             <p> <span class="title">HTML Boilerplate</span>
                 <pre class="language-html"><code>&lt;!DOCTYPE html>
 &lt;html lang="en"&gt;
@@ -71,348 +97,11 @@
 &lt;/html&gt;</code></pre>
 </p><br>
 
-<p> <span class="title">Bootstrap CSS CDN</span>
-    <pre class="language-html"><code>&lt;!-- Bootstrap CSS --&gt;
-&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"&gt;</code></pre>
-</p><br>
 
-<p> <span class="title">Bootstrap Bundle with Popper CDN</span>
-    <pre class="language-html"><code>&lt;!-- Option 1: Bootstrap Bundle with Popper --&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"&gt;&lt;/script&gt;</code></pre>
-</p><br>
-
-<p> <span class="title">Fontawesome CDN</span>
-    <pre class="language-html"><code>&lt;!-- fontawesome cdn --&gt;
-&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /&gt;</code></pre>
-</p><br>
-
-<li>CSS </li>
-<p> <span class="title">CSS Media Query</span>
-    <pre class="language-css"><code>@media only screen and (max-width: 768px) {
-        body {
-          background-color: lightblue;
-        }
-      }</code></pre>
-</p><br>
-<li>React JS </li>
-<p> <span>React array map method</span>
-    <pre class="language-jsx"><code>import React from 'react';
-
-const Gallery = () =&gt; {
-const data=[
-    {
-        id:1,
-        img:"https://picsum.photos/210/300",
-    },
-    {
-        id:2,
-        img:"https://picsum.photos/210/300",
-    },
-];
-
-
-const arraydata = data.map((val, i)=&gt;{
-    return(
-        &lt;img src={data[i].img}/&gt;
-    );
-    
-});
-
-return (
-    &lt;&gt;
-        &lt;h1&gt;Gallery&lt;/h1&gt;
-        &lt;div className="gallery"&gt;
-            {arraydata}
-        &lt;/div&gt;
-    &lt;/&gt;
-)
-}
-
-export default Gallery;</code></pre>
-</p><br>
-<p> <span>Link To Different Pages</span>
-    <pre class="language-jsx"><code>
-&lt;!-- This is on Index.js page --&gt;
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
-import {BrowserRouter} from 'react-router-dom';
-
-ReactDOM.render(
-    &lt;&gt;
-&lt;BrowserRouter&gt;&lt;App/&gt;&lt;/BrowserRouter&gt;&lt;/&gt;,
-document.getElementById('root'));
-
-&lt;!-- This is on App.js page --&gt;
-
-import Home from './Pages/Home';
-import Home from './Pages/About';
-import Home from './Pages/Contact';
-
-function App(){
-return(
-    &lt;Switch&gt;
-        &lt;Route exact path="/" component={Home} /&gt;
-        &lt;Route exact path="/About" component={About} /&gt;
-        &lt;Route exact path="/Contact" component={Contact} /&gt;
-        &lt;Redirect to="/"/&gt;
-    &lt;/Switch&gt;
-);
-}
-export default App;
-
-&lt;!-- This is on Navigation.jsx page --&gt;
-import React from 'react';
-import {NavLink} from 'react-router-dom';
-function Nav(){
-    return(
-        &lt;&gt;
-            &lt;nav&gt;
-                &lt;div className="navbar"&gt;
-                    &lt;NavLink to="/"&gt;Portfolio&lt;/NavLink&gt;
-                    &lt;ul&gt;
-                        &lt;li&gt;&lt;NavLink to="/"&gt;Home&lt;/NavLink&gt;&lt;/li&gt;
-                        &lt;li&gt;&lt;NavLink to="/About"&gt;About&lt;/NavLink&gt;&lt;/li&gt;
-                        &lt;li&gt;&lt;NavLink to="/Contact"&gt;Contact&lt;/NavLink&gt;&lt;/li&gt;
-                    &lt;/ul&gt;
-                &lt;/div&gt;
-            &lt;/nav&gt;
-        &lt;/&gt;
-    );
-}
-export default Nav;
-</code></pre>
-</p><br>
-
-<p> <span class="title">Use State and Ternary Operator</span>
-                <pre class="language-jsx"><code>import React, { useState } from 'react'
-import Back from '../Component/Back'
-
-const IncDecNumber = () =&gt; {
-    const [num, setNum]=useState(0); //Use State
-    const incNum=()=&gt;{
-        setNum(num+1);
-    }
-    const decNum=()=&gt;{
-
-        // If Else statement
-        // if(num &gt; 0)
-        // setNum(num-1);
-        // else{
-        //     setNum(0);
-        //     alert("Sorry, Zero limit reached")
-        // }
-
-        num &gt; 0 ? setNum(num-1) : setNum(0); //Ternary Operater
-    }
-    return (
-        &lt;&gt;
-        &lt;Back/&gt;
-        &lt;div className="center_div"&gt;
-        &lt;div className="IncDecNum"&gt;
-       &lt;h1&gt;{num}&lt;/h1&gt;
-       &lt;div&gt;
-       &lt;button className="btn1" onClick={incNum}&gt;Increment&lt;/button&gt;
-       &lt;button className="btn2" onClick={decNum}&gt;Decrement&lt;/button&gt;
-       &lt;/div&gt;
-      
-      &lt;/div&gt;
-      &lt;/div&gt;
-            
-        &lt;/&gt;
-    )
-}
-
-export default IncDecNumber;
-</code></pre>
-</p><br>
-<p> <span class="title">Props in react</span>
-<pre class="language-jsx"><code>&lt;!-- Props file --&gt;
-import React from 'react';
-import Back from '../Component/Back';
-
-const Props = (props) =&gt; {
-  return (
-    &lt;&gt;
-      &lt;Back /&gt;
-      &lt;div className='props'&gt;
-        &lt;h1&gt;Hi I am {props.name}&lt;/h1&gt;
-      &lt;/div&gt;
-    &lt;/&gt;
-  );
-};
-
-export default Props;
-
-&lt;!-- where I can defined the props --&gt;
-
-import React from 'react';
-import Props from './Props';
-
-const Help = () =&gt; {
-  return (
-    &lt;div&gt;
-      &lt;Props name='Arshad' /&gt; &lt;!-- props --&gt;
-      &lt;Props name='Arshad' /&gt; &lt;!-- props --&gt;
-    &lt;/div&gt;
-  );
-};
-
-export default Help;
-</code></pre>
-</p><br>
-<p> <span class="title">Params in react</span>
-<pre class="language-jsx"><code>&lt;!-- params  --&gt;
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import Back from '../Component/Back';
-
-const Params = () =&gt; {
-  const { fname, lname } = useParams();
-  return (
-    &lt;&gt;
-      &lt;Back /&gt;
-      &lt;h1&gt;
-        Hello I Am {fname}
-        {lname}
-      &lt;/h1&gt;
-    &lt;/&gt;
-  );
-};
-
-export default Params;
-
-&lt;!-- params app.js  --&gt;
-import React from 'react';
-import Params from './Practices/Params';
-
-function App() {
-  return (
-    &lt;&gt;
-    
-      &lt;Switch&gt;
-        
-        &lt;Route exact path='/params/:fname/:lname' component={Params} /&gt; &lt;!-- params (/:fname/:lname)  --&gt;
-       
-      &lt;/Switch&gt;
-    &lt;/&gt;
-  );
-}
-export default App;
-
-&lt;!-- params menu  --&gt;
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-
-const PracticeHeading = () =&gt; {
-  return (
-    &lt;&gt;
-      &lt;div className='heading_link'&gt;
-        
-        &lt;NavLink to='/params/Arshad/Qadri'&gt;Params&lt;/NavLink&gt; &lt;!-- params  --&gt;
-      &lt;/div&gt;
-    &lt;/&gt;
-  );
-};
-
-export default PracticeHeading;
-</code></pre>
-</p><br>
-<p> <span class="title">useLocation in react</span>
-<pre class="language-jsx"><code>import React from 'react';
-import Back from '../Component/Back';
-import { useLocation } from 'react-router-dom';
-
-const Location = () =&gt; {
-  const location = useLocation();
-  return (
-    &lt;&gt;
-      &lt;Back /&gt;
-      &lt;p&gt;This is my url path or location {location.pathname} &lt;/p&gt;
-    &lt;/&gt;
-  );
-};
-
-export default Location;
-</code></pre>
-</p><br>
-
-<p> <span class="title">useHistory in react</span>
-<pre class="language-jsx"><code>import React from 'react';
-import { useHistory } from 'react-router-dom';
-
-const History = () =&gt; {
-  const history = useHistory();
-  const goBack = () =&gt; {
-    history.goBack();
-  };
-  const push = () =&gt; {
-    history.push('/');
-  };
-  return (
-    &lt;&gt;
-      &lt;h1&gt;This is useHistory&lt;/h1&gt;
-      {/* This is reditect to theprevious page */}
-      &lt;button className='goBack_push' onClick={goBack}&gt;
-        Go Back
-      &lt;/button&gt;
-      {/* This is push to the home page */}
-      &lt;button className='goBack_push' onClick={push}&gt;
-        Push
-      &lt;/button&gt;
-    &lt;/&gt;
-  );
-};
-
-export default History;   
-</code></pre>
-</p><br>
-<p> <span class="title">Input in react (using example)</span>
-<pre class="language-jsx"><code>import React, { useState } from 'react';
-import Back from '../Component/Back';
-
-const SearchImg = () =&gt; {
-  const [img, setImg] = useState('');
-  const search = e =&gt; {
-    const data = e.target.value;
-    e.preventDefault();
-
-    setImg(data);
-    console.log(img);
-  };
-  const Simg = `https://source.unsplash.com/400x300?${img}`;
-  const imgStyle = {
-    height: 300,
-    width: 400,
-    border: '5px solid red',
-  };
-  return (
-    &lt;&gt;
-      &lt;Back /&gt;
-      &lt;div&gt; className='dearchImg'&gt;
-        &lt;input
-          type='text'
-          value={img}
-          onChange={search}
-          placeholder='Search here...'
-        /&gt;
-        &lt;br /&gt;
-        {img === '' ? null : &lt;img src={Simg} alt='img' style={imgStyle} /&gt;}
-      &lt;/div&gt;
-    &lt;/&gt;
-  );
-};
-
-export default SearchImg;
-</code></pre>
-</p><br>
-</ol>
+</ul>
 </div>
 
-
-
-
+<!-- --------------Bootstrap cdn --------------------- -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     
 </body>

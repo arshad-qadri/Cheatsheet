@@ -3,16 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
-nav {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-  color: #fff;
-  font-family: 'Potta One', cursive;
+.logo {
+  font-family: "Potta One", cursive;
   font-size: 1.6rem;
   letter-spacing: 1px;
+  color: #fff !important;
+}
+nav ul li a {
+  color: #fff !important;
+  font-weight: 500;
+}
+nav ul li a:hover {
+  text-decoration: underline;
 }
 nav span {
   padding: 0 15px;
@@ -20,8 +22,6 @@ nav span {
 .container {
   width: 80vw !important;
   margin: auto;
-  /* background-color: red; */
-  padding: 20px 0;
 }
 @media only screen and (max-width: 768px) {
   .container {
@@ -32,12 +32,12 @@ nav span {
 }
 .container ol li {
   /* font-size: 1.3rem; */
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 900;
   letter-spacing: 1px;
 }
 .container ol p {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   letter-spacing: 1px;
 }
 .toolbar-item button {
