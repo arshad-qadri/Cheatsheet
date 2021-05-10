@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  min-height: 100vh;
+}
+
 .logo {
   font-family: "Potta One", cursive;
   font-size: 1.6rem;
@@ -14,7 +18,7 @@ nav ul li a {
   font-weight: 500;
 }
 nav ul li a:hover {
-  text-decoration: underline;
+  color: #ccc !important;
 }
 nav span {
   padding: 0 15px;
@@ -46,4 +50,18 @@ nav span {
   padding: 5px 15px !important;
   color: #fff !important;
   margin: 10px 20px;
+}
+.active {
+  border-bottom: 2px solid #fff;
+}
+.hero {
+  min-height: 83.8vh;
+}
+.footer {
+  margin-top: auto;
+}
+@media only screen and (max-width: 768px) {
+  .active {
+    border-bottom: 0;
+  }
 }
