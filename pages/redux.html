@@ -37,37 +37,113 @@
                 <a class="nav-link " aria-current="page" href="css.html">CSS</a>
               </li>     
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="bootstrap.html">Bootstrap</a>
+                <a class="nav-link " aria-current="page" href="bootstrap.html">Bootstrap</a>
               </li>     
               <li class="nav-item">
                 <a class="nav-link " aria-current="page" href="react.html">React</a>
               </li> 
               <li class="nav-item">
                 <a class="nav-link " aria-current="page" href="javascript.html">Javascript</a>
-              </li>    
+              </li>     
+              <li class="nav-item">
+                <a class="nav-link  active" aria-current="page" href="redux.html">Redux</a>
+              </li>     
             </ul>
           </div>
         </div>
       </nav>
     <!-- ------------------------navbar end----------------------- -->
-    <div class="container mt-2">
+    <div class="container mt-2 hero">
         <ul>
 
-    <li class="fw-bold">Bootstrap </li>   
-<p> <span class="title">Bootstrap CSS CDN</span>
-    <pre class="language-html"><code>&lt;!-- Bootstrap CSS --&gt;
-&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"&gt;</code></pre>
+            
+<li class="fw-bold">Redux </li>
+<p> <span class="title">Counter App</span>
+    <pre class="language-jsx"><code>       //============== action.js
+        export const inc = () => {
+            return {
+              type: "INCREMENT",
+            };
+          };
+          
+          export const dec = () => {
+            return {
+              type: "DECREMENT",
+            };
+          };
+
+        //============== reducer.js
+        const initialState = 0;
+        const counterRducer = (state = initialState, action) => {
+        switch (action.type) {
+            case "INCREMENT":
+            return state + 1;
+
+            case "DECREMENT":
+            if (state == 0) {
+                return 0;
+            } else {
+                return state - 1;
+            }
+
+            default:
+            return state;
+        }
+        };
+
+        export default counterRducer;
+
+        //============== rootReducer.js
+        import { combineReducers } from "redux";
+        import reducer from "./reducer";
+
+        const rootReducer = combineReducers({reducer});
+
+        export default rootReducer;
+
+        //============== store.js
+        import { createStore } from "redux";
+        import rootReducer from "./reducers/index";
+
+        const store = createStore(rootReducer);
+
+        export default store;
+
+        //============== connection in index.js 
+        import React from "react";
+        import ReactDOM from "react-dom";
+        import App from "./App";
+        import store from "./store";
+        import { Provider } from "react-redux";
+
+        ReactDOM.render(
+            &lt;React.StrictMode&gt;
+            &lt;Provider store={store}&gt;
+            &lt;App /&gt;
+            &lt;/Provider&gt;
+        &lt;/React.StrictMode&gt;,document.getElementById("root"));
+
+        //============== render data in App.js
+        import React from "react";
+        import { inc, dec} from "./actions";
+        import { useSelector, useDispatch } from "react-redux";
+
+        const App = () =&gt; {
+        const count = useSelector(state =&gt; state.reducer);
+        return (
+            &lt;&gt;
+                &lt;h1&gt;Counter App&lt;/h1&gt;
+                &lt;h3&gt;Count : {count} &lt;/h3&gt;
+                &lt;button onClick={() =&gt; dispatch(inc())}&gt;+&lt;/button&gt;
+                &lt;button onClick={() =&gt; dispatch(dec())}&gt;-&lt;/button&gt;
+            &lt;/&gt;
+        );
+        };
+
+        export default App;
+    </code></pre>
 </p><br>
 
-<p> <span class="title">Bootstrap Bundle with Popper CDN</span>
-    <pre class="language-html"><code>&lt;!-- Option 1: Bootstrap Bundle with Popper --&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"&gt;&lt;/script&gt;</code></pre>
-</p><br>
-
-<p> <span class="title">Fontawesome CDN</span>
-    <pre class="language-html"><code>&lt;!-- fontawesome cdn --&gt;
-&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /&gt;</code></pre>
-</p><br>
 
 </ul>
 </div>
@@ -75,7 +151,7 @@
 <footer class="bg-dark text-white text-center py-2">
     arshad &copy; all rights are reserved
   </footer>
-  <!-- -------------------footer end-------------------- -->
+<!-- -------------------footer end-------------------- -->
 <!-- --------------Bootstrap cdn --------------------- -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     
